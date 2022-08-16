@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class ATMInterface {
+    public static void main(String[] args) {
+        //Balance 
+        
+        int balanceamount = 20000;
+        int withdrawamount;
+        int depositamount;
+
+        //Scanner to take input from the user
+        Scanner sc = new Scanner(System.in);
+
+        while(true){
+
+            //Instruction for the users
+            System.out.println("Automated Teller Machine(ATM).");
+            System.out.println("1 for Withdrawing a money.");
+            System.out.println("2 for Depositing a money.");
+            System.out.println("3 for Checking the balance.");
+            System.out.println("4 for Exit.");
+            System.out.println("Please Enter the operation You want to perform: ");
+
+            //after giving the instructions the user will give the input(choice).
+            int choice = sc.nextInt();
+
+            //hereafter we will use the switch case statements to do the specific task by the user
+            switch(choice){
+                case 1:
+                    System.out.print("Enter how much you wants to withdraw from your account:");
+
+                    //taking the input from the user that how much the user wants to withdraw from the atm.
+                    withdrawamount = sc.nextInt();
+
+                    //
+                    if(balanceamount >= withdrawamount){
+                        balanceamount = balanceamount - withdrawamount;
+                        System.out.println("Please collect the withdrawn money.");
+                    }else {
+                        System.out.println("You don't have a enough amount in your account.");
+                    }
+                    System.out.println("");
+                    break;
+
+
+            //case2 for depositing the money in the account
+                case 2:
+                    System.out.print("Enter the money to be deposited: ");
+
+                    //taking the input from the user that how much the user wants to deposit from the atm.
+                    depositamount = sc.nextInt();
+
+                    //Depositing or adding the amount to the balance amount;
+                    balanceamount = balanceamount + depositamount;
+                    System.out.println("Your money has been successfully deposited or added in the account.");
+
+                    System.out.println("");
+                    break;
+
+                //case for showing or display the amount which the user have in the acccount
+                case 3:
+
+                    //displaying the total amount of the user in the account
+                    System.out.println("Balanceamount: " + balanceamount);
+                    System.out.println("");
+                    break;
+
+                //case 4 for going out of the atm interface or exiting
+                case 4:
+
+                    //Exit fromt the Interface
+                    System.exit(0);
+
+
+
+            }
+
+
+        }
+    }
+}
