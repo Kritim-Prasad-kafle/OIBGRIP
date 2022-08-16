@@ -32,7 +32,7 @@ public class ATMInterface {
                     //taking the input from the user that how much the user wants to withdraw from the atm.
                     withdrawamount = sc.nextInt();
 
-                    //
+                    //if the balance amount is greater than the withdraw amount then you can withdraw
                     if(balanceamount >= withdrawamount){
                         balanceamount = balanceamount - withdrawamount;
                         System.out.println("Please collect the withdrawn money.");
