@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class numberguessinggame {
+    public static void main(String[] args) {
+
+        // Taking the input from the user
+        Scanner sc = new Scanner(System.in);
+
+        // Generating the number from 0 to 100
+        int randnum = 1 + (int) (100 * Math.random());
+
+        // Assigning a trails to 5 to guess the number only up to 5 times,
+        int trails = 5;
+        int i;
+        int guessednumber;
+
+        // Giving an instruction to the user to choose the number from 1 to 100 only and have a trails of 5 only.
+        System.out.println("Number to be choosen between 1 to 100." + " Guess the number in 5 trails.");
+
+        // using a for loop by assing a i value as 0 to the trails value and increasing it by 1th value of i
+        for(i = 0; i < trails; i++) {
+            System.out.println("Guess the number: ");
+
+            // User is giving the guess
+            guessednumber = sc.nextInt();
+
+            // Making a condition that if the generated value is equal to the guessed number then the user guessed the exact number
+            if(randnum == guessednumber){
+                System.out.println("Congratulations!" + "You have guessed the exact number.");
+                break;
+            }
+
+            // if the first condition didn't meet then we make another condition that is
+            //if generated number is greater then it will show the number is greater.
+
+            else if(randnum > guessednumber && i != trails-1){
+                System.out.println("The number is is greater than " + guessednumber + ".");
+
+            }
+
+            //  if the first and second condition didn't meet then we make another condition that is
+            //  if generated number is lesser then it will show the number is lesser.
+
+            else if(randnum < guessednumber && i != trails-1){
+                System.out.println("The number is less than " + guessednumber + ".");
+
+            }
+        }
+
+        // if the ith value is equal to the trails then the user will get a result of out of the trails.
+        if( i == trails){
+            System.out.println("You are out of the trails.");
+            System.out.println("The number was " + randnum + ".");
+        }
+
+    }
+}
